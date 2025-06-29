@@ -12,13 +12,12 @@ export class AIService {
   async generateArtistDescriptions(
     inputArtists: ArtistRecommendation[]
   ): Promise<ArtistRecommendation[]> {
-
     // 1. For each artist, generate a description.
     const artistDescriptions = inputArtists.map((artist) => ({
       ...artist,
       description: "This is a description of the artist",
     }));
-    
+
     // 2. Return the enhanced recommendations.
     return artistDescriptions;
   }

@@ -11,5 +11,9 @@ export type ArtistRecommendation = {
   description?: string;
   musicbrainzId?: string;
 };
+export type ChatMessage = {
+  role: string;
+  content: string;
+};
 
 export type AIProvider = "google";

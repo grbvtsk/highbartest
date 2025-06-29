@@ -3,6 +3,7 @@
 import { useActionState } from "react";
 import { State } from "@/lib/definitions";
 import { getRecommendations } from "@/server/actions";
+import ChatBox from "@/components/ChatBox";
 
 const initialState: State = {
   artists: [],
@@ -73,6 +74,7 @@ Daft Punk"
           </p>
         )}
       </div>
+      <ChatBox />
     </main>
   );
 }
