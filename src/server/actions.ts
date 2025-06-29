@@ -1,6 +1,6 @@
 "use server";
 
-import { State } from "@/lib/definitions";
+import { MBArtist, State } from "@/lib/definitions";
 
 const USER_AGENT =
   process.env.MUSICBRAINZ_USER_AGENT ??
@@ -22,7 +22,7 @@ async function fetchJSON<T = unknown>(url: string): Promise<T> {
 async function findArtistByName(name: string) {
   const query = encodeURIComponent(`artist:${name}`);
   const url = `https://musicbrainz.org/ws/2/artist?query=${query}&fmt=json&limit=1`;
-  const data = await fetchJSON<{ artists?: any[] }>(url);
+  const data = await fetchJSON<{ artists?: MBArtist[] }>(url);
   return data.artists?.[0] ?? null;
 }
 
@@ -98,7 +98,7 @@ export async function getRecommendations(
     const recURL = `https://musicbrainz.org/ws/2/artist?query=${encodeURIComponent(
       tagQuery
     )}&fmt=json&limit=20`;
-    const recData = await fetchJSON<{ artists?: any[] }>(recURL);
+    const recData = await fetchJSON<{ artists?: MBArtist[] }>(recURL);
 
     const excludeIds = new Set(inputArtists.map((a) => a.id));
     const recommendations: string[] = [];

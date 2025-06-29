@@ -16,4 +16,12 @@ export type ChatMessage = {
   content: string;
 };
 
+export type MBArtist = {
+  id: string;
+  name: string;
+  type?: string;
+  country?: string;
+  tags?: { name: string; count?: number }[];
+};
+
 export type AIProvider = "google";
