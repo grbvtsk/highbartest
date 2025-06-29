@@ -70,7 +70,6 @@ export async function getRecommendations(
       };
     }
 
-    /** Агрегуємо всі теги. */
     const tagTotals: Record<string, number> = {};
 
     for (const { id } of inputArtists) {
